@@ -1,0 +1,15 @@
+{
+  "name": "platziverse-db",
+  "version": "1.0.0",
+  "description": "a Simple IoT Platform - DB module",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "lint:fix": "standard --fix"
+  },
+  "author": "Fernando Azuaje <fjah17@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^12.0.1"
+  }
+}
