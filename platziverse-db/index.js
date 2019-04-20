@@ -13,7 +13,7 @@ module.exports = async function config (config) {
   await sequelize.authenticate()
 
   if (config.setup) {
-    await sequelize.sync({ force: true })
+    await sequelize.sync({ force: true }) //borra la base de datos y la crea de nuevo
   }
 
   const Agent = {}
