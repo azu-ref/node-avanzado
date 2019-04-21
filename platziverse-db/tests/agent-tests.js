@@ -21,9 +21,14 @@ let sandbox = null
 
 test.beforeEach(async () => {
     sandbox = sinon.createSandbox()
+
     AgentStub = {
         hasMany: sinon.spy()
     }
+
+    // model finById stup
+    AgentStub.findById = sandbox.stub()
+    AgentStub.findById.withArgs(id).returns(Promise.resolve(agentFixtures.byId(id)))
 
     const setupDatabase = proxyquire('../', {
         './models/agent': () => AgentStub,
