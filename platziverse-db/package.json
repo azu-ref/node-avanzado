@@ -4,6 +4,7 @@
   "description": "a Simple IoT Platform - DB module",
   "main": "index.js",
   "scripts": {
+    "test": "DEBUG=platziverse:* ava tests/ --verbose",
     "lint": "standard",
     "lint:fix": "standard --fix",
     "setup": "DEBUG=platziverse:* node setup.js"
@@ -11,14 +12,17 @@
   "author": "Fernando Azuaje <fjah17@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "ava": "^1.4.1",
     "standard": "^12.0.1"
   },
   "dependencies": {
     "chalk": "^2.4.2",
     "debug": "^4.1.1",
+    "defaults": "^1.0.3",
     "inquirer": "^6.3.1",
     "pg": "^7.10.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^5.7.0"
+    "sequelize": "^5.7.0",
+    "sqlite3": "^4.0.6"
   }
 }
