@@ -1,6 +1,7 @@
 const setupDatabse = require('./lib/db')
 const setupAgentModel = require('./models/agent')
 const setupMetricModel = require('./models/metric')
+const setupAgentService = require('./lib/agent')
 const defaults = require('defaults')
 
 module.exports = async function config (config) {
@@ -30,7 +31,7 @@ module.exports = async function config (config) {
     await sequelize.sync({ force: true }) //borra la base de datos y la crea de nuevo
   }
 
-  const Agent = {}
+  const Agent = setupAgentService(AgentModel)
   const Metric = {}
 
   return { Agent, Metric }
