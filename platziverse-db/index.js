@@ -5,7 +5,7 @@ const setupAgentService = require('./lib/agent')
 const defaults = require('defaults')
 
 module.exports = async function config (config) {
-  config = defaults( config, {
+  config = defaults(config, {
     dialect: 'sqlite',
     pool: {
       max: 10,
@@ -17,7 +17,6 @@ module.exports = async function config (config) {
     }
   })
 
-
   const sequelize = setupDatabse(config)
   const AgentModel = setupAgentModel(config)
   const MetricModel = setupMetricModel(config)
@@ -28,7 +27,7 @@ module.exports = async function config (config) {
   await sequelize.authenticate()
 
   if (config.setup) {
-    await sequelize.sync({ force: true }) //borra la base de datos y la crea de nuevo
+    await sequelize.sync({ force: true }) // borra la base de datos y la crea de nuevo
   }
 
   const Agent = setupAgentService(AgentModel)
