@@ -1,3 +1,4 @@
+const chalk = require('chalk')
 module.exports = function setupMetricService (agentModel, metricModel) {
   async function findByAgentUuid (uuid) {
     return metricModel.findAll({
@@ -28,12 +29,13 @@ module.exports = function setupMetricService (agentModel, metricModel) {
   }
 
   async function create (uuid, metric) {
-    const agent = agentModel.findOne({
+    const agent = await agentModel.findOne({
       where: { uuid }
     })
 
     if (agent) {
-      Object.assign(metric, { agentId: agent.Id })
+      Object.assign(metric, { agentId: agent.id })
+      console.log(chalk.green(`${uuid} y el id: ${agent.id}`))
       const result = await metricModel.create(metric)
       return result.toJSON()
     }
