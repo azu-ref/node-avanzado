@@ -32,7 +32,7 @@ module.exports = async function config (config) {
   }
 
   const Agent = setupAgentService(AgentModel)
-  const Metric = {}
+  const Metric = setupMetricService(AgentModel,MetricModel)
 
   return { Agent, Metric }
 }
