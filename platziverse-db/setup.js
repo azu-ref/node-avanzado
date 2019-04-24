@@ -3,10 +3,12 @@ const inquirer = require('inquirer')
 const chalk = require('chalk')
 const db = require('./')
 
-const prompt = inquirer.createPromptModule()
+const prompt = inquirer.createPromptModule() 
+const flagg = '--init'
 
 async function setup () {
-  const answer = await prompt([
+  if(process.argv[2] !== flagg){
+    const answer = await prompt([
     {
       type: 'confirm',
       name: 'setup',
@@ -15,7 +17,7 @@ async function setup () {
   ])
   if (!answer.setup) {
     return console.log('Nothing happened :)')
-  }
+  }}
 
   const config = {
     database: process.env.DB_NAME || 'platziverse',

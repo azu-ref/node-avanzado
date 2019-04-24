@@ -7,7 +7,8 @@
     "test": "DEBUG=platziverse:* nyc --reporter=lcov ava tests/ --verbose",
     "lint": "standard",
     "lint:fix": "standard --fix",
-    "setup": "DEBUG=platziverse:* node setup.js"
+    "setup": "DEBUG=platziverse:* node setup.js",
+    "setup:auto": "DEBUG=platziverse:* node setup.js --yes"
   },
   "author": "Fernando Azuaje <fjah17@gmail.com>",
   "license": "MIT",
