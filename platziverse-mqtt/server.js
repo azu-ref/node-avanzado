@@ -104,7 +104,7 @@ server.on('published', async (packet, client) => {
           let m
 
           try {
-            m = await Metric.create(agent.uuid, metric)
+            return m = await Metric.create(agent.uuid, metric)
           } catch (e) {
             return handleError(e)
           }
