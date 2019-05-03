@@ -104,12 +104,12 @@ server.on('published', async (packet, client) => {
           let m
 
           try {
+            debug(`Metric ${m.id} saved on agent ${agent.uuid}`)
             return m = await Metric.create(agent.uuid, metric)
           } catch (e) {
             return handleError(e)
           }
 
-          debug(`Metric ${m.id} saved on agent ${agent.uuid}`)
         })
 
         try{
