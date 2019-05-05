@@ -4,6 +4,7 @@
   "description": "A simple IoT platform - API",
   "main": "server.js",
   "scripts": {
+    "test": "DEBUG=platziverse:* ava test/ --verbose",
     "start": "NODE_ENV=production node server",
     "lint": "standard",
     "lint:fix": "standard --fix",
@@ -12,8 +13,10 @@
   "author": "Fernando Azuaje <fjah17@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "ava": "^1.4.1",
     "nodemon": "^1.19.0",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "chalk": "^2.4.2",
