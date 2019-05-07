@@ -125,7 +125,7 @@ server.on('published', async (packet, client) => {
 })
 
 server.on('ready', async () => {
-  const services = await db(config).catch(handleFatalError)
+  const services = await db(config.db).catch(handleFatalError)
 
   Agent = services.Agent
   Metric = services.Metric

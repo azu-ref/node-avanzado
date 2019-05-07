@@ -21,7 +21,7 @@ async function setup () {
 
   const config = require('./config-db')()
 
-  await db(config).catch(handleFatalError)
+  await db(config.db).catch(handleFatalError)
 
   console.log('Succes!')
   process.exit(0)
