@@ -1,6 +1,7 @@
 const debug = require('debug')('platziverse:api:routes')
 const express = require('express')
 const db = require('platziverse-db')
+const auth = require('express-jwt')
 const config = require('../platziverse-db/config-db')(false)
 
 const api = express.Router()
