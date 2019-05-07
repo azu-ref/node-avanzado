@@ -46,7 +46,7 @@ test.afterEach(() => {
 test.serial.cb('/api/agents', t => {
   request(server)
     .get('/api/agents')
-    .set('Autothorization', `Bearer ${token}`)
+    .set('Authorization', `Bearer ${token}`)
     .expect(200)
     .expect('Content-Type', /json/)
     .end((err, res) => {
