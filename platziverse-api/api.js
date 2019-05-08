@@ -2,6 +2,7 @@ const debug = require('debug')('platziverse:api:routes')
 const express = require('express')
 const db = require('platziverse-db')
 const auth = require('express-jwt')
+const guard = require('express-jwt-permissions')()
 const config = require('../platziverse-db/config-db')(false)
 
 const api = express.Router()
@@ -70,7 +71,7 @@ api.get('/agents/:uuid', auth(config.auth), async (req, res, next) => {
   res.send(agent)
 })
 
-api.get('/metrics/:uuid', auth(config.auth), async (req, res, next) => {
+api.get('/metrics/:uuid', auth(config.auth), guard.check(['metrics:read']), async (req, res, next) => {
   const { uuid } = req.params
 
   debug(`Request to /metrics/${uuid}`)
