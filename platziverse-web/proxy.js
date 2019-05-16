@@ -28,11 +28,11 @@ api.get('/agents', async (req, res, next) => {
   res.send(result)
 })
 
-api.get('/agent/:uuid', async (req, res, next) => {
+api.get('/agents/:uuid', async (req, res, next) => {
   const { uuid } = req.params
   const options = {
     method: 'GET',
-    url: `${endpoint}/api/agent/${uuid}`,
+    url: `${endpoint}/api/agents/${uuid}`,
     headers: {
       'Authorization': `Bearer ${apiToken}`
     },
