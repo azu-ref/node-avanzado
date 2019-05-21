@@ -1,19 +1,31 @@
 #!/usr/bin/env node
 
-// const minimist = require('minimist')
+/* eslint new-cap: "off" */
 
-// console.log('Hello Platziverse!')
+const blessed = require('blessed')
+const contrib = require('blessed-contrib')
 
-// const args = minimist(process.argv)
+const screen = blessed.screen()
 
-// console.log(args.name)
-// console.log(args.host)
+const grid = new contrib.grid({
+  rows: 1,
+  cols: 4,
+  screen
+})
 
-const args = require('args')
+const tree = grid.set(0, 0, 1, 1, contrib.tree, {
+  label: 'Connected Agents'
+})
 
-args
-  .option('port', 'The port on which the app will be running', 3000)
-  .option('reload', 'Enable/disable livereloading')
-  .command('serve', 'Serve your static site', ['s'])
- 
-const flags = args.parse(process.argv)
+const line = grid.set(0, 1, 1, 3, contrib.line, {
+  label: 'Metrics',
+  showLegend: true,
+  minY: 0,
+  xPadding: 5
+})
+
+screen.key([ 'scape', 'q', 'C-c' ], (ch, key) => {
+  process.exit(0)
+})
+
+screen.render()

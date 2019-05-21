@@ -5,12 +5,14 @@
   "description": "A simple IoT platform - CLI",
   "bin": "platziverse.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:fix": "standard --fix"
   },
   "author": "Fernando Azuaje <fjah17@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "args": "^5.0.1",
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.8.16",
     "minimist": "^1.2.0",
     "standard": "^12.0.1"
   }
