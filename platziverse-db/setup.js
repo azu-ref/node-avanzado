@@ -4,7 +4,7 @@ const chalk = require('chalk')
 const db = require('./')
 
 const prompt = inquirer.createPromptModule() 
-const flagg = '--init'
+const flagg = '--yes'
 
 async function setup () {
   if(process.argv[2] !== flagg){
