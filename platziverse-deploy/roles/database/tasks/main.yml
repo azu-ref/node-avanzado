@@ -5,5 +5,5 @@
     state=reloaded
 - name: Restarting Redis
   service:
-  name=redis
-  state=restarted
+    name=redis
+    state=restarted
